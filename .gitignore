@@ -1,4 +1,5 @@
-config.js
+# Ignore the config.js file.
+Simple_Map/static/js/config.js
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
