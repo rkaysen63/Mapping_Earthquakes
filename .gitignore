@@ -2,6 +2,7 @@
 Simple_Map/static/js/config.js
 Mapping_Single_Points/static/js/config.js
 Mapping_Multiple_Points/static/js/config.js
+Mapping_Lines/static/js/config.js
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
