@@ -64,7 +64,7 @@ function getColor(magnitude) {
     if (magnitude > 1) {
       return "#d4ee00";//green yellow
     }
-    return "#98ee00";//lt green
+    return "#98ee00";//bright green
   }
 
 // This function determines the radius of the earthquake marker based on its magnitude.
@@ -99,3 +99,36 @@ d3.json(earthquakeData).then(function(data) {
   // Add earthquake layer to the map.
   earthquakes.addTo(map);
 });
+
+// Add custom legend control, https://leafletjs.com/examples/choropleth/
+// Create legend control object.
+let legend = L.control({
+    position: 'bottomright'
+});
+
+// Add all the details for the legend.
+legend.onAdd = function () {
+
+    let div = L.DomUtil.create('div', 'info legend');
+        const magnitudes = [0, 1, 2, 3, 4, 5];
+        const colors = [
+            "#98ee00", // bright green
+            "#d4ee00", // green yellow
+            "#eecc00", // gold
+            "#ee9c00", // orange
+            "#ea822c", // red orange
+            "#ea2c2c"  // red
+          ];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < magnitudes.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColor(magnitudes[i] + 1) + '"></i> ' +
+            magnitudes[i] + (magnitudes[i + 1] ? '&ndash;' + magnitudes[i + 1] + '<br>' : '+');
+    }
+
+    return div;
+};
+
+legend.addTo(map);
+
