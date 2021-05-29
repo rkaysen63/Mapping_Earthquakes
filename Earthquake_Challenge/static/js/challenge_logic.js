@@ -76,9 +76,8 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     // if (magnitude > 1) {
       // return "#d4ee00";
     // }
-    // return "#98ee00";
+    return "#98ee00";
     // -------------------------------------------------
-    return "#ee9c00";
   }
 
   // This function determines the radius of the earthquake marker based on its magnitude.
@@ -104,7 +103,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
       // We create a popup for each circleMarker to display the magnitude and location of the earthquake
       //  after the marker has been created and styled.
       onEachFeature: function(feature, layer) {
-        layer.bindPopup("Magnitude: " + feature.properties.mag + "<hr>Location: " + 
+        layer.bindPopup("Earthquake<hr>Magnitude: " + feature.properties.mag + "<br>Location: " + 
         feature.properties.place);
       }
   }).addTo(allEarthquakes);
@@ -133,7 +132,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
       let hours = (d.getHours() < 10) ? "0" + d.getHours() : d.getHours();
       let minutes = (d.getMinutes() < 10) ? "0" + d.getMinutes() : d.getMinutes();
       let formattedTime = hours + ":" + minutes;
-      formattedDate = formattedDate + " " + formattedTime;
+      formattedDate = formattedDate + " @ " + formattedTime;
       console.log(formattedDate)
 
       layer.bindPopup("Major Earthquake<hr>Magnitude: " + 
