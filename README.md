@@ -114,5 +114,14 @@ In the image above, only the "Streets" map layer and "Tectonic Plates" overlay a
          return "#98ee00";
        }
 
+4. Because a popup showing the name of the plate selected was added to the tectonic plates layer, that layer must be temporarily toggled off in order to select an earthquake in order to retrieve its popup data.
+5. Since the layers.js file contains variables for all eight Mapbox tiles, it would be very easy to add another tile layer to the challenge_logic.js.  For example, to add mapbox://styles/mapbox/navigation-night-v1, another key: value for the "Night Navigation" could be added to the baseMaps variable as follows:
+
+       let baseMaps = {
+         "Streets": streets,
+         "Satellite": satelliteStreets,
+         "Dark": dark,
+         "Night Navigation": navigationNight  
+       };
 
 [Back to the Table of Contents](https://github.com/rkaysen63/Mapping_Earthquakes/blob/master/README.md#table-of-contents)
