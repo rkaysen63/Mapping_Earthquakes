@@ -1,6 +1,6 @@
 # Mapping_Earthquakes
 <p align="center">
-  <img src="Images/13_Del_3_MajorEarthquakes_SatelliteMap.png" width="1000">
+  <img src="images/13_Del_3_MajorEarthquakes_SatelliteMap.PNG" width="800">
 </p>
 
 The image above shows the location of earthquakes that have occurred around the world in the seven days prior to May 29, 2021.  The size and color are relative to the magnitude of the earthquake.  Anything less than a magnitude of 4 is colored a light yellow-green.  If a major earthquake location is selected, the popup will show the magnitude of the earthquake, its location and the date and time that the earthquake was recorded.
@@ -46,6 +46,19 @@ The maps generated for this project track earthquakes around the world that have
   * This file contains functions to retrieve the earthquake, major earthquake and tectonic plate data and functions add layers, overlays, and styling to the map.
 
 ## Images:
+<p align="center">
+  <img src="images/13_Del_3_Earthquakes_DarkSatelliteMap.PNG" width="800">
+</p>
+
+### Dark Map Layer/Earthquake Overlay
+In the image above, only the "Dark" map layer and "Earthquakes" overlay are selected.  When an earthquake circle is selected, a popup will display its magnitude and location. The color and radius of the circle markers are based on the magnitude of the earthquake. The size of the circle increases with the magnitude of the earthquake. The legend shows the relationship between magnitude and color.  Please note that due to specifications in the challenge, the range of colors was limited to three with earthquakes ranging magnitude from 0 - 4 displaying the same color, light green. <br>
+
+<p align="center">
+  <img src="images/13_Del_2_TectonicPlt_StreetMap.png" width="800">
+</p>
+
+### Streets Map Layer/Tectonic Plates Overlay
+In the image above, only the "Streets" map layer and "Tectonic" overlay are selected.  When a tectonic plate is selected, a popup will display its two letter plate code and the plate's name.<br>
 
 ## Notes:
 
