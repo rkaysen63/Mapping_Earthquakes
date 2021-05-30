@@ -1,13 +1,13 @@
 // Create tile layer that will be background of the map. 
 // https://docs.mapbox.com/api/maps/styles/
-// streets mapbox://styles/mapbox/streets-v11  
-// mapbox://styles/mapbox/outdoors-v11
-// mapbox://styles/mapbox/light-v10
-// mapbox://styles/mapbox/dark-v10
-// mapbox://styles/mapbox/satellite-v9
-// mapbox://styles/mapbox/satellite-streets-v11
-// mapbox://styles/mapbox/navigation-day-v1
-// mapbox://styles/mapbox/navigation-night-v1
+// streets - mapbox://styles/mapbox/streets-v11  
+// outdoors - mapbox://styles/mapbox/outdoors-v11
+// light - mapbox://styles/mapbox/light-v10
+// dark - mapbox://styles/mapbox/dark-v10
+// satellite - mapbox://styles/mapbox/satellite-v9
+// satelliteStreets - mapbox://styles/mapbox/satellite-streets-v11
+// navigationDay - mapbox://styles/mapbox/navigation-day-v1
+// navigationNight - mapbox://styles/mapbox/navigation-night-v1
 
 // Define variables for our tile layers
 let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
