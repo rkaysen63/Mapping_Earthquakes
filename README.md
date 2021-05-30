@@ -51,16 +51,68 @@ The maps generated for this project track earthquakes around the world that have
 </p>
 
 ### Dark Map Layer/Earthquake Overlay
-In the image above, only the "Dark" map layer and "Earthquakes" overlay are selected.  When an earthquake circle is selected, a popup will display its magnitude and location. The color and radius of the circle markers are based on the magnitude of the earthquake. The size of the circle increases with the magnitude of the earthquake. The legend shows the relationship between magnitude and color.  Please note that due to specifications in the challenge, the range of colors was limited to three with earthquakes ranging magnitude from 0 - 4 displaying the same color, light green. <br>
+In the image above, only the "Dark" map layer and "Earthquakes" overlay are selected.  When an earthquake circle is selected, a popup will display its magnitude and location. The color and radius of the circle markers are based on the magnitude of the earthquake. The size of the circle increases with the magnitude of the earthquake. The legend shows the relationship between magnitude and color.  Please note that due to specifications in the challenge, the range of colors was later limited to three with earthquakes ranging magnitude from 0 - 4 displaying the same light green color. <br>
 
 <p align="center">
   <img src="images/13_Del_2_TectonicPlt_StreetMap.png" width="800">
 </p>
 
 ### Streets Map Layer/Tectonic Plates Overlay
-In the image above, only the "Streets" map layer and "Tectonic" overlay are selected.  When a tectonic plate is selected, a popup will display its two letter plate code and the plate's name.<br>
+In the image above, only the "Streets" map layer and "Tectonic Plates" overlay are selected.  When a tectonic plate is selected, a popup will display its two letter plate code and the plate's name.<br>
 
 ## Notes:
+1. A separate layers.js was created in order to make all eight Mapbox layers readily available.
+2. The GeoJSON earthquake data feature properties includes a timestamp.  The time stamp was converted to a date and time and added to the Major Earthquakes popup information.
+    
+       onEachFeature: function(feature, layer) {
+         let d = new Date(feature.properties.time);
+         let formattedDate = d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear();
+         let hours = (d.getHours() < 10) ? "0" + d.getHours() : d.getHours();
+         let minutes = (d.getMinutes() < 10) ? "0" + d.getMinutes() : d.getMinutes();
+         let formattedTime = hours + ":" + minutes;
+          
+         formattedDate = formattedDate + " @ " + formattedTime;
+         
+         console.log(formattedDate)
+         
+         layer.bindPopup("Major Earthquake<hr>Magnitude: " + 
+            feature.properties.mag + "<br>Location: " + feature.properties.place +
+            "<br>Date & Time : " + formattedDate);
+       }
+
+3. getColor() Function
+   a. In the original code, the getColor() Function matches the legend in the corner with a different color for each level up to magnitude 5 with all earthquakes with a magnitude of 5 or greater than 5 lumped together.
+   
+       function getColor(magnitude) {
+         if (magnitude > 5) {
+           return "#ea2c2c";
+         }
+         if (magnitude > 4) {
+           return "#ea822c";
+         }
+         if (magnitude > 3) {
+           return "#ee9c00";
+         }
+         if (magnitude > 2) {
+           return "#eecc00";
+         }
+         if (magnitude > 1) {
+           return "#d4ee00";
+         }
+         return "#98ee00"; 
+       }
+   
+   b. Later the code was changed to meet the assignment specifications that reduced the number of colors three with one color assigned to magnitudes 0 to 4, one color assigned to the magnitudes 4 to 5 and the third color assigned to magnitudes of 5 and greater.  
+   
+       function getColor(magnitude) {
+         if (magnitude > 5) {
+           return "#ea2c2c";
+         }
+         if (magnitude > 4) {
+           return "#ea822c";
+         }
+         return "#98ee00";
+       }
 
 
 [Back to the Table of Contents](https://github.com/rkaysen63/Mapping_Earthquakes/blob/master/README.md#table-of-contents)
